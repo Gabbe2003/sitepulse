@@ -51,20 +51,6 @@ export default function Contact() {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
-  const [testStatus, setTestStatus] = useState<"idle" | "loading" | "ok" | "error">("idle");
-
-  const handleTest = async () => {
-    setTestStatus("loading");
-    try {
-      const res = await fetch("/api/contact");
-      if (!res.ok) throw new Error();
-      setTestStatus("ok");
-    } catch {
-      setTestStatus("error");
-    } finally {
-      setTimeout(() => setTestStatus("idle"), 4000);
-    }
-  };
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -228,26 +214,28 @@ export default function Contact() {
                   <div className="grid sm:grid-cols-2 gap-5">
                     <div>
                       <label className="block text-slate-600 text-xs font-medium mb-2">
-                        Telefon
+                        Telefon <span className="text-red-500">*</span>
                       </label>
                       <input
                         type="tel"
                         name="phone"
                         value={form.phone}
                         onChange={handleChange}
+                        required
                         placeholder="+46 70 000 00 00"
                         className="w-full px-4 py-3 bg-white border border-slate-200 hover:border-slate-300 focus:border-blue-400 focus:ring-2 focus:ring-blue-100 rounded-xl text-slate-800 placeholder-slate-400 text-sm outline-none transition-all duration-200"
                       />
                     </div>
                     <div>
                       <label className="block text-slate-600 text-xs font-medium mb-2">
-                        Ämne
+                        Ämne <span className="text-red-500">*</span>
                       </label>
                       <div className="relative">
                         <select
                           name="subject"
                           value={form.subject}
                           onChange={handleChange}
+                          required
                           className={`w-full px-4 py-3 bg-white border border-slate-200 hover:border-slate-300 focus:border-blue-400 focus:ring-2 focus:ring-blue-100 rounded-xl text-sm outline-none transition-all duration-200 appearance-none cursor-pointer pr-10 ${
                             form.subject ? "text-slate-800" : "text-slate-400"
                           }`}
@@ -301,23 +289,6 @@ export default function Contact() {
                         Skicka meddelande
                         <SendHorizonal className="w-4 h-4" />
                       </>
-                    )}
-                  </button>
-
-                  <button
-                    type="button"
-                    onClick={handleTest}
-                    disabled={testStatus === "loading"}
-                    className="w-full flex items-center justify-center gap-2 py-3 border border-slate-200 hover:border-slate-300 bg-white hover:bg-slate-50 disabled:opacity-60 disabled:cursor-not-allowed text-slate-500 rounded-xl text-xs font-medium transition-all duration-200"
-                  >
-                    {testStatus === "loading" ? (
-                      <><Loader2 className="w-3.5 h-3.5 animate-spin" /> Skickar test...</>
-                    ) : testStatus === "ok" ? (
-                      <><CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" /> <span className="text-emerald-600">Testmail skickat!</span></>
-                    ) : testStatus === "error" ? (
-                      <span className="text-red-500">Misslyckades – kontrollera API-nyckeln</span>
-                    ) : (
-                      "Skicka testmail"
                     )}
                   </button>
 

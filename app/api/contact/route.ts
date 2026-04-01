@@ -77,20 +77,3 @@ export async function POST(req: NextRequest) {
   }
 }
 
-export async function GET() {
-  try {
-    await sendEmail({
-      name: "Test",
-      email: "test@sitepulse.se",
-      phone: "+46 70 000 00 00",
-      subject: "webbdesign",
-      message: "Detta är ett testmeddelande från Sitepulse kontaktformulär.",
-    });
-
-    return NextResponse.json({ success: true, message: "Testmail skickat!" });
-  } catch (err) {
-    const msg = err instanceof Error ? err.message : "Fel vid testmail.";
-    console.error("Test email failed:", msg);
-    return NextResponse.json({ error: msg }, { status: 500 });
-  }
-}
