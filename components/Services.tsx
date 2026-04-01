@@ -114,7 +114,7 @@ export default function Services() {
                 href="#kontakt"
                 className="inline-flex items-center gap-1.5 text-blue-600 hover:text-blue-500 text-sm font-medium transition-colors group/link"
               >
-                Läs mer
+                Kom igång
                 <ArrowRight className="w-3.5 h-3.5 group-hover/link:translate-x-1 transition-transform" />
               </a>
             </div>
