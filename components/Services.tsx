@@ -7,6 +7,7 @@ import {
   BarChart2,
   ArrowRight,
 } from "lucide-react";
+import AnimateOnScroll, { StaggerChildren } from "./AnimateOnScroll";
 
 const services = [
   {
@@ -76,22 +77,29 @@ export default function Services() {
     <section id="tjanster" className="py-24 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16">
-          <span className="inline-block text-blue-600 text-sm font-semibold tracking-widest uppercase mb-4">
-            Vad vi erbjuder
-          </span>
-          <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 mb-5">
-            Allt du behöver för{" "}
-            <span className="gradient-text">digital framgång</span>
-          </h2>
-          <p className="text-slate-500 text-lg max-w-2xl mx-auto">
-            Vi erbjuder ett komplett utbud av digitala tjänster för att hjälpa
-            ditt företag växa online.
-          </p>
-        </div>
+        <AnimateOnScroll animation="fade-up">
+          <div className="text-center mb-16">
+            <span className="inline-block text-blue-600 text-sm font-semibold tracking-widest uppercase mb-4">
+              Vad vi erbjuder
+            </span>
+            <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 mb-5">
+              Allt du behöver för{" "}
+              <span className="gradient-text">digital framgång</span>
+            </h2>
+            <p className="text-slate-500 text-lg max-w-2xl mx-auto">
+              Vi erbjuder ett komplett utbud av digitala tjänster för att hjälpa
+              ditt företag växa online.
+            </p>
+          </div>
+        </AnimateOnScroll>
 
         {/* Service cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <StaggerChildren
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+          animation="fade-up"
+          stagger={100}
+          baseDelay={100}
+        >
           {services.map((service) => (
             <div
               key={service.title}
@@ -119,7 +127,7 @@ export default function Services() {
               </a>
             </div>
           ))}
-        </div>
+        </StaggerChildren>
       </div>
     </section>
   );

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { ExternalLink } from "lucide-react";
+import AnimateOnScroll, { StaggerChildren } from "./AnimateOnScroll";
 
 const projects = [
   {
@@ -63,22 +64,29 @@ export default function Portfolio() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-14">
-          <span className="inline-block text-blue-600 text-sm font-semibold tracking-widest uppercase mb-4">
-            Våra projekt
-          </span>
-          <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 mb-5">
-            Vad vi har{" "}
-            <span className="gradient-text">byggt</span>
-          </h2>
-          <p className="text-slate-500 text-lg max-w-2xl mx-auto">
-            Ett urval av webbplatser vi har designat, byggt och optimerat för
-            våra kunder.
-          </p>
-        </div>
+        <AnimateOnScroll animation="fade-up">
+          <div className="text-center mb-14">
+            <span className="inline-block text-blue-600 text-sm font-semibold tracking-widest uppercase mb-4">
+              Våra projekt
+            </span>
+            <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 mb-5">
+              Vad vi har{" "}
+              <span className="gradient-text">byggt</span>
+            </h2>
+            <p className="text-slate-500 text-lg max-w-2xl mx-auto">
+              Ett urval av webbplatser vi har designat, byggt och optimerat för
+              våra kunder.
+            </p>
+          </div>
+        </AnimateOnScroll>
 
         {/* 2×2 grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <StaggerChildren
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          animation="zoom-in"
+          stagger={120}
+          baseDelay={100}
+        >
           {projects.map((project, index) => (
             <a
               key={project.name}
@@ -142,9 +150,10 @@ export default function Portfolio() {
               </div>
             </a>
           ))}
-        </div>
+        </StaggerChildren>
 
         {/* CTA */}
+        <AnimateOnScroll animation="fade-up" delay={400}>
         <div className="text-center mt-12">
           <a
             href="#kontakt"
@@ -153,6 +162,7 @@ export default function Portfolio() {
             Starta ditt projekt
           </a>
         </div>
+        </AnimateOnScroll>
       </div>
     </section>
   );

@@ -1,4 +1,5 @@
 import { ArrowRight, ChevronDown, Sparkles } from "lucide-react";
+import AnimateOnScroll from "./AnimateOnScroll";
 
 const logos = [
   { src: "/logo/ft.png", alt: "FT" },
@@ -26,50 +27,59 @@ export default function Hero() {
       {/* Main content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-12">
         {/* Badge */}
-        <div className="flex justify-center mb-8">
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-600 text-sm font-medium">
-            <Sparkles className="w-3.5 h-3.5" />
-            AI Marketing Platform · Stockholm
-          </span>
-        </div>
+        <AnimateOnScroll animation="fade-down" duration={700}>
+          <div className="flex justify-center mb-8">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-600 text-sm font-medium">
+              <Sparkles className="w-3.5 h-3.5" />
+              AI Marketing Platform · Stockholm
+            </span>
+          </div>
+        </AnimateOnScroll>
 
         {/* Headline */}
-        <h1 className="text-center font-extrabold text-slate-900 leading-[1.1] mb-6 max-w-5xl mx-auto">
-          <span className="block text-5xl sm:text-6xl lg:text-7xl xl:text-8xl">
-            Designad för{" "}
-            <span className="gradient-text">framgång</span>,
-          </span>
-          <span className="block text-5xl sm:text-6xl lg:text-7xl xl:text-8xl mt-1">
-            utvecklad för{" "}
-            <span className="gradient-text">framtiden</span>
-          </span>
-        </h1>
+        <AnimateOnScroll animation="fade-up" delay={150} duration={800}>
+          <h1 className="text-center font-extrabold text-slate-900 leading-[1.1] mb-6 max-w-5xl mx-auto">
+            <span className="block text-5xl sm:text-6xl lg:text-7xl xl:text-8xl">
+              Designad för{" "}
+              <span className="gradient-text">framgång</span>,
+            </span>
+            <span className="block text-5xl sm:text-6xl lg:text-7xl xl:text-8xl mt-1">
+              utvecklad för{" "}
+              <span className="gradient-text">framtiden</span>
+            </span>
+          </h1>
+        </AnimateOnScroll>
 
         {/* Subtext */}
-        <p className="text-center text-slate-500 text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
-          Vi hjälper dig att lyfta din sida till ny nivå med modern webbdesign,
-          kraftfull SEO och digital marknadsföring som{" "}
-          <span className="text-slate-700 font-medium">ger verkliga resultat</span>.
-        </p>
+        <AnimateOnScroll animation="fade-up" delay={300} duration={700}>
+          <p className="text-center text-slate-500 text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+            Vi hjälper dig att lyfta din sida till ny nivå med modern webbdesign,
+            kraftfull SEO och digital marknadsföring som{" "}
+            <span className="text-slate-700 font-medium">ger verkliga resultat</span>.
+          </p>
+        </AnimateOnScroll>
 
         {/* CTA buttons */}
-        <div className="flex flex-col sm:flex-row justify-center gap-4 mb-16">
-          <a
-            href="#kontakt"
-            className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 text-white rounded-xl font-semibold text-base transition-all duration-200 shadow-xl shadow-blue-500/25 hover:shadow-blue-500/35 hover:scale-[1.02]"
-          >
-            Kom igång nu
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </a>
-          <a
-            href="#tjanster"
-            className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white hover:bg-slate-50 border border-slate-200 hover:border-slate-300 text-slate-700 rounded-xl font-semibold text-base transition-all duration-200 shadow-sm"
-          >
-            Se våra tjänster
-          </a>
-        </div>
+        <AnimateOnScroll animation="fade-up" delay={450} duration={700}>
+          <div className="flex flex-col sm:flex-row justify-center gap-4 mb-16">
+            <a
+              href="#kontakt"
+              className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 text-white rounded-xl font-semibold text-base transition-all duration-200 shadow-xl shadow-blue-500/25 hover:shadow-blue-500/35 hover:scale-[1.02]"
+            >
+              Kom igång nu
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </a>
+            <a
+              href="#tjanster"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white hover:bg-slate-50 border border-slate-200 hover:border-slate-300 text-slate-700 rounded-xl font-semibold text-base transition-all duration-200 shadow-sm"
+            >
+              Se våra tjänster
+            </a>
+          </div>
+        </AnimateOnScroll>
 
         {/* Stats */}
+        <AnimateOnScroll animation="fade-up" delay={600} duration={700}>
         <div className="flex flex-wrap justify-center gap-8 sm:gap-16 mb-4">
           {[
             { value: "40+", label: "Nöjda kunder" },
@@ -85,6 +95,7 @@ export default function Hero() {
             </div>
           ))}
         </div>
+        </AnimateOnScroll>
       </div>
 
       {/* Client carousel */}

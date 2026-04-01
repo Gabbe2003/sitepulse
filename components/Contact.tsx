@@ -10,6 +10,7 @@ import {
   Loader2,
   ChevronDown,
 } from "lucide-react";
+import AnimateOnScroll from "./AnimateOnScroll";
 
 const contactInfo = [
   {
@@ -87,24 +88,27 @@ export default function Contact() {
     <section id="kontakt" className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16">
-          <span className="inline-block text-blue-600 text-sm font-semibold tracking-widest uppercase mb-4">
-            Kontakta oss
-          </span>
-          <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 mb-5">
-            Redo att ta din{" "}
-            <span className="gradient-text">digitala närvaro</span> till nästa
-            nivå?
-          </h2>
-          <p className="text-slate-500 text-lg max-w-2xl mx-auto">
-            Fyll i formuläret så återkommer vi inom 24 timmar. Eller kontakta
-            oss direkt via e-post.
-          </p>
-        </div>
+        <AnimateOnScroll animation="fade-up">
+          <div className="text-center mb-16">
+            <span className="inline-block text-blue-600 text-sm font-semibold tracking-widest uppercase mb-4">
+              Kontakta oss
+            </span>
+            <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 mb-5">
+              Redo att ta din{" "}
+              <span className="gradient-text">digitala närvaro</span> till nästa
+              nivå?
+            </h2>
+            <p className="text-slate-500 text-lg max-w-2xl mx-auto">
+              Fyll i formuläret så återkommer vi inom 24 timmar. Eller kontakta
+              oss direkt via e-post.
+            </p>
+          </div>
+        </AnimateOnScroll>
 
         <div className="grid lg:grid-cols-5 gap-10">
           {/* Contact info sidebar */}
-          <div className="lg:col-span-2 space-y-5">
+          <AnimateOnScroll animation="fade-right" delay={100} className="lg:col-span-2">
+          <div className="space-y-5">
             {contactInfo.map((item) => (
               <div
                 key={item.label}
@@ -155,9 +159,11 @@ export default function Contact() {
               </p>
             </div>
           </div>
+          </AnimateOnScroll>
 
           {/* Contact form */}
-          <div className="lg:col-span-3">
+          <AnimateOnScroll animation="fade-left" delay={200} className="lg:col-span-3">
+          <div>
             <div className="p-8 rounded-2xl bg-white border border-slate-200 shadow-sm">
               {success ? (
                 <div className="flex flex-col items-center justify-center py-16 text-center gap-4">
@@ -306,6 +312,7 @@ export default function Contact() {
               )}
             </div>
           </div>
+          </AnimateOnScroll>
         </div>
       </div>
     </section>

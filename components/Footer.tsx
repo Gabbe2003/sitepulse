@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Mail, MapPin, ArrowRight } from "lucide-react";
+import AnimateOnScroll from "./AnimateOnScroll";
 
 const footerLinks = {
   Tjänster: [
@@ -86,6 +87,7 @@ export default function Footer() {
         </div>
 
         {/* CTA Banner */}
+        <AnimateOnScroll animation="zoom-in">
         <div className="py-8 px-8 mb-10 rounded-2xl bg-gradient-to-r from-blue-600/20 via-cyan-600/20 to-blue-600/20 border border-blue-500/20 flex flex-col sm:flex-row items-center justify-between gap-6">
           <div>
             <h3 className="text-white font-bold text-lg mb-1">
@@ -103,6 +105,7 @@ export default function Footer() {
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </a>
         </div>
+        </AnimateOnScroll>
 
         {/* Bottom bar */}
         <div className="text-white py-6 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-600 text-xs">

@@ -1,4 +1,5 @@
 import { CheckCircle2, Award, Clock, HeartHandshake } from "lucide-react";
+import AnimateOnScroll, { StaggerChildren } from "./AnimateOnScroll";
 
 const stats = [
   { value: "40+", label: "Nöjda kunder", sub: "och växer" },
@@ -35,7 +36,11 @@ export default function About() {
     <section id="om-oss" className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Stats row */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 mb-24">
+        <StaggerChildren
+          className="grid grid-cols-2 lg:grid-cols-4 gap-5 mb-24"
+          animation="fade-up"
+          stagger={100}
+        >
           {stats.map((stat) => (
             <div
               key={stat.label}
@@ -50,40 +55,47 @@ export default function About() {
               <div className="text-slate-400 text-xs">{stat.sub}</div>
             </div>
           ))}
-        </div>
+        </StaggerChildren>
 
         {/* Two-column layout */}
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left: text */}
-          <div>
-            <span className="inline-block text-blue-600 text-sm font-semibold tracking-widest uppercase mb-4">
-              Om oss
-            </span>
-            <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 mb-6 leading-tight">
-              Kraften av digital{" "}
-              <span className="gradient-text">excellence</span> med Sitepulse
-            </h2>
-            <p className="text-slate-500 text-base leading-relaxed mb-5">
-              Sitepulse Marketing är en digital byrå baserad i Stockholm. Vi
-              hjälper företag av alla storlekar att lyckas online med
-              skräddarsydda lösningar inom webbdesign, SEO och digital
-              marknadsföring.
-            </p>
-            <p className="text-slate-500 text-base leading-relaxed mb-8">
-              Med ett team av erfarna experter levererar vi webbplatser och
-              strategier som inte bara ser bra ut — de konverterar besökare
-              till kunder och driver mätbar tillväxt.
-            </p>
-            <a
-              href="#kontakt"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 text-white rounded-xl font-semibold text-sm transition-all duration-200 shadow-lg shadow-blue-500/20 hover:scale-[1.02]"
-            >
-              Ta kontakt med oss
-            </a>
-          </div>
+          <AnimateOnScroll animation="fade-right" duration={700}>
+            <div>
+              <span className="inline-block text-blue-600 text-sm font-semibold tracking-widest uppercase mb-4">
+                Om oss
+              </span>
+              <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 mb-6 leading-tight">
+                Kraften av digital{" "}
+                <span className="gradient-text">excellence</span> med Sitepulse
+              </h2>
+              <p className="text-slate-500 text-base leading-relaxed mb-5">
+                Sitepulse Marketing är en digital byrå baserad i Stockholm. Vi
+                hjälper företag av alla storlekar att lyckas online med
+                skräddarsydda lösningar inom webbdesign, SEO och digital
+                marknadsföring.
+              </p>
+              <p className="text-slate-500 text-base leading-relaxed mb-8">
+                Med ett team av erfarna experter levererar vi webbplatser och
+                strategier som inte bara ser bra ut — de konverterar besökare
+                till kunder och driver mätbar tillväxt.
+              </p>
+              <a
+                href="#kontakt"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 text-white rounded-xl font-semibold text-sm transition-all duration-200 shadow-lg shadow-blue-500/20 hover:scale-[1.02]"
+              >
+                Ta kontakt med oss
+              </a>
+            </div>
+          </AnimateOnScroll>
 
           {/* Right: value props */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          <StaggerChildren
+            className="grid grid-cols-1 sm:grid-cols-2 gap-5"
+            animation="fade-left"
+            stagger={120}
+            baseDelay={200}
+          >
             {values.map((v) => (
               <div
                 key={v.title}
@@ -98,7 +110,7 @@ export default function About() {
                 <p className="text-slate-500 text-xs leading-relaxed">{v.desc}</p>
               </div>
             ))}
-          </div>
+          </StaggerChildren>
         </div>
       </div>
     </section>
