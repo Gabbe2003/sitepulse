@@ -4,7 +4,7 @@ import AnimateOnScroll, { StaggerChildren } from "./AnimateOnScroll";
 const stats = [
   { value: "40+", label: "Nöjda kunder", sub: "och växer" },
   { value: "50+", label: "Projekt levererade", sub: "sedan 2019" },
-  { value: "2+", label: "Års erfarenhet", sub: "i branschen" },
+  { value: "3+", label: "Års erfarenhet", sub: "i branschen" },
   { value: "24/7", label: "Support", sub: "alltid tillgänglig" },
 ];
 

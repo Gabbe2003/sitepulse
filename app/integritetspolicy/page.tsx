@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: "Integritetspolicy – Sitepulse Marketing",
   description:
     "Läs om hur Sitepulse Marketing AB samlar in, behandlar och skyddar dina personuppgifter i enlighet med GDPR.",
+  alternates: {
+    canonical: "https://sitepulse.se/integritetspolicy",
+  },
 };
 
 export default function IntegritetspolicyPage() {

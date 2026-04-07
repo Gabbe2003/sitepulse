@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: "Cookiepolicy – Sitepulse Marketing",
   description:
     "Läs om hur Sitepulse Marketing AB använder cookies och liknande spårningstekniker på sin webbplats.",
+  alternates: {
+    canonical: "https://sitepulse.se/cookiepolicy",
+  },
 };
 
 export default function CookiepolicyPage() {

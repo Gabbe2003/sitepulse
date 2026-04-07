@@ -84,7 +84,7 @@ export default function Hero() {
           {[
             { value: "40+", label: "Nöjda kunder" },
             { value: "50+", label: "Projekt levererade" },
-            { value: "2+", label: "Års erfarenhet" },
+            { value: "3+", label: "Års erfarenhet" },
             { value: "24/7", label: "Support tillgänglig" },
           ].map((stat) => (
             <div key={stat.label} className="text-center">
